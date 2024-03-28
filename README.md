@@ -6,11 +6,12 @@ To quickly set up a web interface using ComfyUI, follow these steps:
 Clone or download the repository directly into the `custom_nodes` directory within ComfyUI.
 
 ## 2.Run the ComfyUI Server:
-Execute `run_nvidia_gpu.bat` or `run_cpu.bat`
+Execute `run_nvidia_gpu.bat` or `run_cpu.bat`.
 
-## 3.Replace the Default Workflow: Follow these steps to replace the default workflow with your own:
+## 3.Replace the Default Workflow:
+Follow these steps to replace the default workflow with your own:
 
-- Enable Dev Mode Options: Click on the Settings area in the ComfyUI interface to enable Dev Mode Options.
+- Enable Dev Mode Options: Click on "Settings" in the ComfyUI interface to enable Dev Mode Options.
 
 - Generate Workflow JSON: Return to the ComfyUI interface and click on "Save (API Format)" to generate a JSON file representing your workflow.
 
