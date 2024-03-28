@@ -19,7 +19,7 @@ Follow these steps to replace the default workflow with your own:
 
 ![comfygen](https://github.com/wei30172/comfygen/assets/60259324/b0b4f0f7-01fa-488e-aca0-24c38de18b18)
 
-- ## 4.Access the Web Interface:
+## 4.Access the Web Interface:
 Open your web browser and navigate to `http://<comfy_address>:<comfy_port>/<repository_name>` (e.g., http://127.0.0.1:8188/comfygen). 
 
 # Project Screenshots
