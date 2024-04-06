@@ -3,12 +3,12 @@
     "inputs": {
       "seed": 63423992056382,
       "steps": 20,
-      "cfg": 2.1,
+      "cfg": 3.6,
       "sampler_name": "euler",
       "scheduler": "normal",
       "denoise": 1,
       "model": [
-        "4",
+        "10",
         0
       ],
       "positive": [
@@ -102,6 +102,19 @@
     "class_type": "SaveImage",
     "_meta": {
       "title": "Save Image"
+    }
+  },
+  "10": {
+    "inputs": {
+      "multiplier": 0.7000000000000001,
+      "model": [
+        "4",
+        0
+      ]
+    },
+    "class_type": "RescaleCFG",
+    "_meta": {
+      "title": "RescaleCFG"
     }
   }
 }

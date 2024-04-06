@@ -41,3 +41,16 @@ body {
   background: #111;
   border-radius: 6px;
 }
+
+label[for="cfgrescale"] {
+  color: #eee;
+  margin-top: 5px;
+  font-size: 1.2rem;
+}
+
+#cfgrescale {
+  margin-left: 10px;
+  margin-bottom: 20px;
+  transform: scale(1.2);
+  vertical-align: middle;
+}
