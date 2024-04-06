@@ -25,3 +25,4 @@ Open your web browser and navigate to `http://<comfy_address>:<comfy_port>/<repo
 # Project Screenshots
 ![comfygen](https://github.com/wei30172/comfygen/assets/60259324/8263c7ad-5492-4a3d-946a-575c4dcaed60)
 ![comfygen](https://github.com/wei30172/comfygen/assets/60259324/ac77c19a-1715-4b25-a948-7a293e19362b)
+![comfygen](https://github.com/wei30172/comfygen/assets/60259324/5652c9ea-70be-4e7d-809d-225a54ee9dda)
