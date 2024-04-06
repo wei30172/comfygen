@@ -6,9 +6,16 @@
   const workflow = await loadWorkflow()
   
   const promptElement = document.getElementById('prompt')
-  const sendPromptButton = document.getElementById('sendPromptButton')
+  const sendPromptButton = document.getElementById('send-prompt-button')
   const mainBuildElement = document.getElementById('maingen')
   const cfgRescaleElement = document.getElementById('cfgrescale')
+  const progressBar = document.getElementById('main-progress')
+
+  // Update the progress bar
+  function updateProgress(max=0, value=0) {
+    progressBar.max = max // Maximum value
+    progressBar.value = value // Current progress value
+  }
 
   // Connect to WebSocket
   const socket = new WebSocket(socketUrl)
@@ -37,8 +44,15 @@
   // Handle messages from WebSocket
   function handleSocketMessage(event) {
     const data = JSON.parse(event.data)
+    // console.log({data})
     
-    if (data.type === 'executed' && 'images' in data['data']['output']) {
+    if (data.type === 'status') {
+      updateProgress(0, 0)
+    } else if (data.type === 'execution_start') {
+      updateProgress(100, 1)
+    } else if (data.type === 'progress') {
+      updateProgress(data['data']['max'], data['data']['value'])
+    } else if (data.type === 'executed' && 'images' in data['data']['output']) {
       const images = data['data']['output']['images'][0]
       updateImage(images.filename, images.subfolder)
     }
@@ -54,25 +68,25 @@
   async function queuePromptWithText(text) {
     // check if the text is empty
     if (!text.trim()) {
-      alert("Please enter some text to generate an image.");
+      alert('Please enter some text to generate an image.');
       return
     }
     
     // Clear the image
-    mainBuildElement.src = "data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+    mainBuildElement.src = 'data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEAAAAALAAAAAABAAEAAAIBRAA7'
     
     // It's important to verify that the workflow node indexes
     // correspond to the correct nodes in your workflow JSON.
-    workflow["6"]["inputs"]["text"] = text.replace(/(\r\n|\n|\r)/gm, " ")
-    workflow["3"]["inputs"]["seed"] = Math.floor(Math.random() * 9999999999)
+    workflow['6']['inputs']['text'] = text.replace(/(\r\n|\n|\r)/gm, ' ')
+    workflow['3']['inputs']['seed'] = Math.floor(Math.random() * 9999999999)
     
-    // Check if the "RescaleCFG" node ("10") exists in the workflow.
-    if ("10" in workflow && cfgRescaleElement.checked) {
-      workflow["3"]["inputs"]["model"][0] = "10"
-      workflow["3"]["inputs"]["cfg"] = "3.6"
+    // Check if the 'RescaleCFG' node ('10') exists in the workflow.
+    if ('10' in workflow && cfgRescaleElement.checked) {
+      workflow['3']['inputs']['model'][0] = '10'
+      workflow['3']['inputs']['cfg'] = '3.6'
     } else {
-      workflow["3"]["inputs"]["model"][0] = "4" // Default model
-      workflow["3"]["inputs"]["cfg"] = "2.1" // Default cfg value
+      workflow['3']['inputs']['model'][0] = '4' // Default model
+      workflow['3']['inputs']['cfg'] = '2.1' // Default cfg value
     }
 
     const data = { prompt: workflow, client_id: clientId }
