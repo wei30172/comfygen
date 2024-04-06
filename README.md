@@ -13,9 +13,9 @@ Follow these steps to replace the default workflow with your own:
 
 - Enable Dev Mode Options: Click on "Settings" in the ComfyUI interface to enable Dev Mode Options.
 
-- Generate Workflow JSON: Return to the ComfyUI interface and click on "Save (API Format)" to generate a JSON file representing your workflow.
+- Generate Workflow JSON: Go back and click "Save (API Format)" to make a JSON for your workflow.
 
-- Replace Base Workflow: Replace the contents of web/js/base_workflow.json with the generated JSON file to use your own completed workflow.
+- Replace Base Workflow: Replace web/js/base_workflow.json with your JSON to use your workflow.
 
 ![comfygen](https://github.com/wei30172/comfygen/assets/60259324/b0b4f0f7-01fa-488e-aca0-24c38de18b18)
 
