@@ -1,4 +1,4 @@
-body {
+body, main {
   background: #333;
   color: #eee;
   margin: 0;
@@ -20,9 +20,10 @@ body {
   font-size: 1.4rem;
   background-color: #bbb;
   color: #333;
+  outline: none;
 }
 
-#sendPromptButton {
+#send-prompt-button {
   margin-top: 20px;
   padding: 10px 20px;
   border: none;
@@ -31,6 +32,12 @@ body {
   color: #eee;
   font-size: 1.2rem;
   cursor: pointer;
+  transition: background-color 0.3s, transform 0.1s;
+}
+
+#send-prompt-button:active {
+  background-color: #555;
+  transform: scale(0.95);
 }
 
 #maingen {
@@ -40,4 +47,33 @@ body {
   height: 512px;
   background: #111;
   border-radius: 6px;
+}
+
+#main-progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 3;
+  border-radius: 0;
+  height: 6px;
+  background-color: #607D8B;
+  border: 0;
+}
+
+#main-progress::-moz-progress-bar {
+  background: #4CAF50;
+}
+
+#main-progress::-webkit-progress-bar {
+  background: transparent;
+}
+
+#main-progress::-webkit-progress-value {
+  background: #4CAF50;
+}
+
+#main-progress::-moz-progress-bar,
+#main-progress::-webkit-progress-value {
+    transition: width 0.5s ease;
 }
