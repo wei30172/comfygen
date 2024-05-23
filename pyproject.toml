@@ -1,0 +1,14 @@
+[project]
+name = "comfygen"
+description = "Setting Up a Web Interface Using ComfyUI.\nNOTE:When installed, you can access it via http://127.0.0.1:8188/comfygen."
+version = "1.0.0"
+license = "LICENSE"
+
+[project.urls]
+Repository = "https://github.com/wei30172/comfygen"
+#  Used by Comfy Registry https://comfyregistry.org
+
+[tool.comfy]
+PublisherId = ""
+DisplayName = "comfygen"
+Icon = ""
