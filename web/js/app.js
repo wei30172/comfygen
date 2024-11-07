@@ -69,8 +69,14 @@
       return
     }
   
+    // Set the input text for the positive prompt, replacing newlines with spaces
+    // Note: There may be two "class_type": "CLIPTextEncode" in the JSON, one for the positive prompt and one for the negative prompt
     workflow['6']['inputs']['text'] = text.replace(/(\r\n|\n|\r)/gm, ' ')
+
+    // Generate a random seed for the KSampler node ("class_type": "KSampler") to ensure variability in the image generation process
+    // Note: After changing the model, ensure to find the correct model node and check if a seed value needs to be set
     workflow['3']['inputs']['seed'] = Math.floor(Math.random() * 9999999999)
+    
     const data = { prompt: workflow, client_id: clientId }
     
     await fetch('/prompt', {

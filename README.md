@@ -19,7 +19,22 @@ Follow these steps to replace the default workflow with your own:
 
 ![comfygen](https://github.com/wei30172/comfygen/assets/60259324/b0b4f0f7-01fa-488e-aca0-24c38de18b18)
 
-## 4.Access the Web Interface:
+## 4.Workflow Node Configuration:
+When setting up your workflow in ComfyUI, it’s essential to configure the nodes correctly. Here are some key nodes you may encounter:
+
+- CLIPTextEncode Node (e.g., workflow['6']): Encodes the positive prompt text for image generation.
+
+- CCLIPTextEncode Node for Negative Prompt (e.g., workflow['7']): Encodes the negative prompt to avoid certain features (e.g., watermarks).
+
+- KSampler Node (e.g., workflow['3']): Generates images based on the encoded prompts.
+
+Notes:
+
+- Node identifiers (e.g., workflow['6'], workflow['7'], workflow['3']) may vary in other users' JSON files. Always check your specific workflow JSON for the correct node structure and settings.
+
+- When replacing models, ensure to locate the appropriate model nodes and confirm if a seed value needs to be set.
+
+## 5.Access the Web Interface:
 Open your web browser and navigate to `http://<comfy_address>:<comfy_port>/<repository_name>` (e.g., http://127.0.0.1:8188/comfygen). 
 
 # Project Screenshots
